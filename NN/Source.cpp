@@ -23,10 +23,7 @@ int main() {
     int epochs = 1000;
     double learning_rate = 0.5;
 
-    int xSize = 3;
-    int ySize = 2;
-    int zSize = 3;
-    int iSize = 3;
+
     //std::vector<std::vector<double>>biases(xSize, std::vector<double>(ySize));
     //std::vector < std::vector<double>>biases2(2,std::vector<double>(20));
    //biases.insert(std::end(biases), std::begin(biases2), std::end(biases2));
