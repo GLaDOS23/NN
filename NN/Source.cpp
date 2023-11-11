@@ -24,7 +24,7 @@ int main() {
     double learning_rate = 0.5;
 
 
-    // print("кринж")
+
     //std::vector<std::vector<double>>biases(xSize, std::vector<double>(ySize));
     //std::vector < std::vector<double>>biases2(2,std::vector<double>(20));
    //biases.insert(std::end(biases), std::begin(biases2), std::end(biases2));
