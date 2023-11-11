@@ -13,27 +13,27 @@ int main() {
                                                {7.0, 8.0} };
 
     std::vector<double> vector = { 2.0, 3.0, 4.0 };
-    std::vector<double> vector1 = { 1,2 };
-    std::vector<double> vector2 = { 0 };
+    std::vector<std::vector<double>> vector1 = { {1,2 },{2,0}};
+    std::vector<std::vector<double>> vector2 = { {1},{0} };
 
     int input_size = 2;
     int output_size = 1;
     int hidden_layers = 2;
-    int hidden_neurons = 3;
-    int epochs = 100;
+    int hidden_neurons = 5;
+    int epochs = 1000;
     double learning_rate = 0.5;
 
-    int xSize = 3;
-    int ySize = 2;
-    int zSize = 3;
-    int iSize = 3;
+
+    // print("кринж")
     //std::vector<std::vector<double>>biases(xSize, std::vector<double>(ySize));
     //std::vector < std::vector<double>>biases2(2,std::vector<double>(20));
    //biases.insert(std::end(biases), std::begin(biases2), std::end(biases2));
-    std::vector<std::vector<std::vector<double>>>biases = employee.initialize_biases(input_size, hidden_neurons, output_size, hidden_layers);
+    //std::vector<std::vector<std::vector<double>>>biases = 
+    employee.initialize_biases(input_size, hidden_neurons, output_size, hidden_layers);
     //(xSize, std::vector < std::vector<std::vector<double>>>(ySize, std::vector < std::vector<double>>(zSize, std::vector <double>( iSize))))
     //std::vector < std::vector<std::vector<std::vector<double>>>> weights;
-    std::vector < std::vector<std::vector<std::vector<double>>>> weights = employee.initialize_weights(input_size, hidden_neurons, output_size, hidden_layers);
+    //std::vector < std::vector<std::vector<std::vector<double>>>> weights = 
+    employee.initialize_weights(input_size, hidden_neurons, output_size, hidden_layers);
     
     //employee.Print();
 
@@ -56,6 +56,7 @@ int main() {
     unsigned int end_time = clock();
     cout << "Time: " << (end_time - start_time)/ 1000.0 << endl;
         employee.Print();
+        
     /*
     std::vector<double> result3 = employee.FeedForward(vector1, biases, weights);
     for (double row1 : result3) {
