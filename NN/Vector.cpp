@@ -84,7 +84,7 @@ std::vector<double> NeuroCPP::VectorVectorSubtraction(const std::vector<double>&
     int numRows = vector1.size();
     std::vector<double> result(numRows);
 
-    // Сложение элементов векторов
+    // вычитания элементов векторов
     for (size_t i = 0; i < numRows; ++i) {
         result[i] = vector1[i] - vector2[i];
     }
@@ -108,4 +108,13 @@ std::vector<std::vector<double>> NeuroCPP::TransposeMatrix(const std::vector<std
     }
 
     return transposedMatrix;
+}
+
+double NeuroCPP::MSE_vector(const  std::vector<double>& x, const  std::vector<double>& y) {
+    int numRows = x.size();
+    double result = 0;
+    for (size_t i = 0; i < numRows; ++i) {
+        result += pow((x[i] - y[i]),2);
+    }
+    return  result / numRows ;
 }

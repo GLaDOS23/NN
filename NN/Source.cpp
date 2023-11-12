@@ -13,15 +13,15 @@ int main() {
                                                {7.0, 8.0} };
 
     std::vector<double> vector = { 2.0, 3.0, 4.0 };
-    std::vector<std::vector<double>> vector1 = { {1,2 },{2,0}};
-    std::vector<std::vector<double>> vector2 = { {1},{0} };
+    std::vector<std::vector<double>> vector1 = { {0,-2,1},{3,6,7}};
+    std::vector<std::vector<double>> vector2 = { {0},{1} };
 
-    int input_size = 2;
+    int input_size = 3;
     int output_size = 1;
     int hidden_layers = 2;
-    int hidden_neurons = 5;
-    int epochs = 1000;
-    double learning_rate = 0.5;
+    int hidden_neurons = 4;
+    int epochs = 10000;
+    double learning_rate =0.5;
 
 
     //std::vector<std::vector<double>>biases(xSize, std::vector<double>(ySize));
@@ -55,6 +55,10 @@ int main() {
     unsigned int end_time = clock();
     cout << "Time: " << (end_time - start_time)/ 1000.0 << endl;
         employee.Print();
+        std::vector<double> Y = employee.FeedForward(vector1[0]);
+        double MSE = employee.MSE_vector(vector2[0],Y);
+        std::cout << Y[0] << " ";
+            std::cout << MSE << " ";
         
     /*
     std::vector<double> result3 = employee.FeedForward(vector1, biases, weights);

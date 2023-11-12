@@ -41,7 +41,9 @@ public:
     std::vector<double> FeedForward(const std::vector<double>& x);//, const std::vector<std::vector<double>>& weights
     double Backpropagation(const std::vector<double>& x, const std::vector<double>& y,double learning_rate);
     double Train(const std::vector < std::vector<double>>& x, const std::vector < std::vector<double>>& y, int epochs, double learning_rate);
+    double MSE_vector(const  std::vector<double>& x, const std::vector<double>& y);
     //функция сигмоиды для векторов
+
      std::vector<double> sigmoid_vector(const std::vector<double>& x);
     //функция производной сигмоиды для векторов
      std::vector<double> sigmoid_derivative_vector(const std::vector<double>& x);
