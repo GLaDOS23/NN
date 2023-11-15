@@ -14,6 +14,10 @@ public:
     v2 activations;
     v2 biases;
     v3 weights;
+
+
+    // Функция для сложения двух матриц
+    std::vector<std::vector<double>> addMatrices(const std::vector<std::vector<double>>& matrix1, const std::vector<std::vector<double>>& matrix2);
     // Функция для умножения вектора на матрицу
      std::vector<double> matrixVectorMultiply(const std::vector<double>& vector, const std::vector<std::vector<double>>& matrix);
 
@@ -40,6 +44,7 @@ public:
      std::vector < std::vector<double>>FeedForward_activations(const std::vector<double>& x);//, const std::vector<std::vector<double>>& weights
     std::vector<double> FeedForward(const std::vector<double>& x);//, const std::vector<std::vector<double>>& weights
     double Backpropagation(const std::vector<double>& x, const std::vector<double>& y,double learning_rate);
+    double Backpropagation2(const std::vector<double>& x, const std::vector<double>& y, double learning_rate);
     double Train(const std::vector < std::vector<double>>& x, const std::vector < std::vector<double>>& y, int epochs, double learning_rate);
     double MSE_vector(const  std::vector<double>& x, const std::vector<double>& y);
     //функция сигмоиды для векторов

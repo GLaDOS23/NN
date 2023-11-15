@@ -94,6 +94,20 @@ double NeuroCPP::Backpropagation(const std::vector<double>& x, const std::vector
     Y = y;
     FeedForward_activations(x);
     Y = VectorVectorProduct(VectorVectorSubtraction(Y, activations[biases.size() - 1]), sigmoid_derivative_vector(activations[biases.size() - 1]));
+    weights[biases.size() - 1] = addMatrices(weights[biases.size() - 1], TransposeMatrix(matrixVectorAddition(VectorVectorProduct(activations[biases.size() -1], VectorNumberProduct(Y, learning_rate)), TransposeMatrix(weights[biases.size() - 1]))));
+    biases[biases.size() - 1] = VectorVectorAddition(biases[biases.size() - 1], VectorNumberProduct(Y, learning_rate));
+    for (int i = biases.size() - 2; i >= 0; i--) {
+        Y = VectorVectorProduct(matrixVectorMultiply(Y, TransposeMatrix(weights[i + 1])), activations[i]);
+        weights[i] = addMatrices(weights[i], TransposeMatrix(matrixVectorAddition(VectorVectorProduct(activations[i], VectorNumberProduct(Y, learning_rate)), TransposeMatrix(weights[i]))));
+        biases[i] = VectorVectorAddition(biases[i], VectorNumberProduct(Y, learning_rate));
+    }
+    return 0; 
+}
+double NeuroCPP::Backpropagation2(const std::vector<double>& x, const std::vector<double>& y, double learning_rate) {
+    std::vector<double> Y;
+    Y = y;
+    FeedForward_activations(x);
+    Y = VectorVectorProduct(VectorVectorSubtraction(Y, activations[biases.size() - 1]), sigmoid_derivative_vector(activations[biases.size() - 1]));
     weights[biases.size() - 1] = TransposeMatrix(matrixVectorAddition(VectorVectorProduct(activations[biases.size() - 1], VectorNumberProduct(Y, learning_rate)), TransposeMatrix(weights[biases.size() - 1])));
     biases[biases.size() - 1] = VectorVectorAddition(biases[biases.size() - 1], VectorNumberProduct(Y, learning_rate));
     for (int i = biases.size() - 2; i >= 0; i--) {
@@ -152,6 +166,13 @@ double  NeuroCPP::Print() {
 
     }
     std::cout << std::endl;
+
+    std::cout <<"dddddddddddddd"<< std::endl;
+        for (double value : activations[biases.size() -1]) {
+            std::cout << value << " ";
+        }
+        std::cout << std::endl;
+    
     return 0;
 }
 //функция сигмоиды для векторов

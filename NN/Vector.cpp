@@ -1,6 +1,23 @@
 #include "neurocpp.h"
 //#include "Eigen/src/AccelerateSupport/AccelerateSupport.h"
 // Функция для умножения вектора на матрицу
+
+// Функция для сложения двух матриц
+std::vector<std::vector<double>> NeuroCPP::addMatrices(const std::vector<std::vector<double>>& matrix1, const std::vector<std::vector<double>>& matrix2) {
+    int rows = matrix1.size();
+    int cols = matrix1[0].size(); // Предполагается, что матрицы одинакового размера
+    std::vector<std::vector<double>> result(rows, std::vector<double>(cols, 0)); // Создаем матрицу-результат
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            result[i][j] = matrix1[i][j] + matrix2[i][j]; // Складываем соответствующие элементы
+        }
+    }
+
+    return result;
+}
+
+
 std::vector<double> NeuroCPP::matrixVectorMultiply(const std::vector<double>& vector, const std::vector<std::vector<double>>& matrix) {
     int numRows = matrix.size();
     int numCols = matrix[0].size();
